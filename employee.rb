@@ -1,3 +1,12 @@
+require 'rubygems'
+require 'bundler/setup'
+require 'active_record'
+require 'pry'
+
+require './employee_department_migration'
+require './db_connection.rb'
+
+EmployeeDepartmentMigration.migrate(:up)
 
 class Employee
   attr_reader :name, :email, :phone, :salary, :review, :satisfactory
