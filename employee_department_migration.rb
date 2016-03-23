@@ -6,6 +6,8 @@ class EmployeeDepartmentMigration < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.integer :salary
+      t.string :review
+      t.boolean :performace
     end
 
     create_table :departments do |t|
