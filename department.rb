@@ -1,18 +1,16 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'active_record'
-require 'pry'
-
-require './employee'
-
 class Department < ActiveRecord::Base
-  attr_reader :name, :staff, :review
+  # attr_reader :name, :staff, :review
+  #
+  # def initialize(department_name)
+  #   @name = department_name
+  #   @staff = []
+  # end
+  has_many(:employees)
 
-  def initialize(department_name)
-    @name = department_name
-    @staff = []
+  def employee
+    Empolyee.find(employee_id)
   end
-
+  
   def add_employee(new_employee)
     @staff << new_employee
   end

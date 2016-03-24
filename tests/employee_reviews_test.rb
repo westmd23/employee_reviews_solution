@@ -1,23 +1,30 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './department'
+
 require './tests/test_helper'
 
 class EmployeeReviews < Minitest::Test
+  def setup
+    @employee = Employee.create(name: "Bob")
+  end
+
+  def teardown
+    @employee.destroy
+  end
 
   def test_classes_exist
+    Department.new
+    Employee.new
     assert Department
     assert Employee
   end
 
   def test_can_create_new_department
-    a = Department.new("Marketing")
+    a = Department.create("Marketing")
     assert a
     assert_equal "Marketing", a.name
   end
 
   def test_can_create_new_employee
-    new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
+    new_employee = @employee
     assert new_employee
   end
 

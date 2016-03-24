@@ -1,11 +1,14 @@
 class Employee < ActiveRecord::Base
-  attr_reader :name, :email, :phone, :salary, :review, :satisfactory
+  # attr_reader :name, :email, :phone, :salary, :review, :satisfactory
 
-  def initialize(name: nil, email: nil, phone: nil, salary: nil)
-    @name = name
-    @email = email
-    @phone = phone
-    @salary = salary
+  # def initialize(name: nil, email: nil, phone: nil, salary: nil)
+  #   @name = name
+  #   @email = email
+  #   @phone = phone
+  #   @salary = salary
+  # end
+  def employee
+    Empolyee.find(employee_id)
   end
 
   def add_employee_review(review)
