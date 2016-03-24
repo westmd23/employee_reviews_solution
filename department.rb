@@ -10,9 +10,9 @@ class Department < ActiveRecord::Base
   def employee
     Empolyee.find(employee_id)
   end
-  
-  def add_employee(new_employee)
-    @staff << new_employee
+
+  def add_employee
+    Employee.create(department_id: id)
   end
 
   def department_salary

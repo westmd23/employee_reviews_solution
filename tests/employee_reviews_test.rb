@@ -3,7 +3,7 @@ require './tests/test_helper'
 
 class EmployeeReviews < Minitest::Test
   def setup
-    @employee = Employee.create(name: "Bob")
+    @employee = Employee.create(name: "Mike")
   end
 
   def teardown
@@ -18,7 +18,7 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_can_create_new_department
-    a = Department.create("Marketing")
+    a = Department.create(name: "Marketing")
     assert a
     assert_equal "Marketing", a.name
   end
@@ -29,10 +29,9 @@ class EmployeeReviews < Minitest::Test
   end
 
   def test_can_add_employee_to_a_department
-    a = Department.new("Marketing")
-    new_employee = Employee.new(name: "Dan", email: "d@mail.com", phone: "914-555-5555", salary: 50000.00)
-    a.add_employee(new_employee)
-    assert_equal [new_employee], a.staff
+    a = Department.new
+    a.add_employee
+    assert_equal "Mike"
   end
 
   def test_can_get_employee_name

@@ -7,9 +7,7 @@ class Employee < ActiveRecord::Base
   #   @phone = phone
   #   @salary = salary
   # end
-  def employee
-    Empolyee.find(employee_id)
-  end
+
 
   def add_employee_review(review)
     @review = review
